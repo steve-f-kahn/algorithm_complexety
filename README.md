@@ -33,3 +33,4 @@ source ./venv/bin/activate
 ### Install packages
 
 - Pytest `pip install pytest`
+- Numpy `pip install numpy`
