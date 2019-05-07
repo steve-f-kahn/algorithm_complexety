@@ -9,18 +9,20 @@ import timer
 
 class TestClass():
     def test_passes_a_result_to_a_csv_file(self):
+        times = [1,2,3]
+        def time():
+            return times.pop(0)
+        timer.time.time = time
         stopwatch = timer.Timer()
-        def add(a,b):
-            return a + b
-        function = lambda a,b :  a + b
-        stopwatch.start(add(1,1))
-        # open csv file
-        with open('add.csv', 'r') as csvfile:
-            spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+        def test(array):
+            return array + 1
+        
+        stopwatch.start(test)
+        with open('test_v1.csv', 'r') as csvfile:
+            spamreader = csv.reader(csvfile)
             for row in spamreader:
-                    print(row)
-                    assert len(row) > 0
-                    return
-            assert True == False 
-                            
-        # assert contents 
+                assert row[0] == '1'
+    
+    def teardown_class(self):
+        os.remove('test_v1.csv')
+                         
