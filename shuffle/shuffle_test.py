@@ -9,4 +9,4 @@ class TestClass:
         assert shuffle([1,2],1) == [2,1]
 
     def test_shuffle_returns_a_different_array_when_randomness_stubbed(self):
-        assert shuffle([1,2,3,4,5],1) == [5,3,4,1,2]
+        assert shuffle([1,2,3,4,5],1) == [2,1,5,4,3]
