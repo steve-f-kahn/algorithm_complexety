@@ -6,12 +6,18 @@ import time
 class Timer():
 
     def populate_array(self):
-        list = []
+        
+        list_of_arrays = []
         i = 1
         while i <= 10:
-            list.append(np.arange(i*5000))
+            array = []
+            j = 0
+            while j < i*5000 :
+                array.append(j)
+                j+= 1
             i += 1
-        return list
+            list_of_arrays.append(array)
+        return list_of_arrays
 
 
     def start(self, function):

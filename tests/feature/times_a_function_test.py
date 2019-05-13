@@ -15,15 +15,15 @@ class TestClass():
         timer.time.time = time
         stopwatch = timer.Timer()
         def test(array):
-            return array + 1
+            return array.pop(len(array)-1)
         
         stopwatch.start(test)
-        i = 1
+        output = []
         with open('test_v1.csv', 'r') as csvfile:
             spamreader = csv.reader(csvfile)
             for row in spamreader:
-                assert row[0] == f'{i}'
-                i += 1
+                output.append(row[1])
+            assert output == ["Time","1","2","3","4","5","6","7","8","9","10"]
 
     def teardown_class(self):
         os.remove('test_v1.csv')
